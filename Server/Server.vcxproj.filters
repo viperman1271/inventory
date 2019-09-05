@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="handlers\autoregisteringhandler.cpp">
+      <Filter>handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\api.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\info.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="handlers">
+      <UniqueIdentifier>{71669c2b-3fb2-4908-ad8d-6fdee0df369c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objectmodel">
+      <UniqueIdentifier>{cf2b5f50-afc1-4dee-ba4b-2dd5ba9d7136}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="handlers\basehandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="handlers\apihandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="handlers\autoregisteringhandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="objectmodel\api.h">
+      <Filter>objectmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="handlers\infohandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="objectmodel\info.h">
+      <Filter>objectmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+</Project>
