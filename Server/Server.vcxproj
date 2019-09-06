@@ -20,17 +20,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="handlers\autoregisteringhandler.cpp" />
+    <ClCompile Include="handlers\loginhandler.cpp" />
+    <ClCompile Include="handlers\userhandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="managers\usermanager.cpp" />
     <ClCompile Include="objectmodel\api.cpp" />
+    <ClCompile Include="objectmodel\error.cpp" />
     <ClCompile Include="objectmodel\info.cpp" />
+    <ClCompile Include="objectmodel\object.cpp" />
+    <ClCompile Include="objectmodel\user.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="handlers\apihandler.h" />
+    <ClInclude Include="handlers\authhandler.h" />
     <ClInclude Include="handlers\autoregisteringhandler.h" />
     <ClInclude Include="handlers\basehandler.h" />
     <ClInclude Include="handlers\infohandler.h" />
+    <ClInclude Include="handlers\loginhandler.h" />
+    <ClInclude Include="handlers\userhandler.h" />
+    <ClInclude Include="managers\usermanager.h" />
     <ClInclude Include="objectmodel\api.h" />
+    <ClInclude Include="objectmodel\error.h" />
     <ClInclude Include="objectmodel\info.h" />
+    <ClInclude Include="objectmodel\object.h" />
+    <ClInclude Include="objectmodel\user.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

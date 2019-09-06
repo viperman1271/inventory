@@ -11,6 +11,24 @@
     <ClCompile Include="objectmodel\info.cpp">
       <Filter>objectmodel</Filter>
     </ClCompile>
+    <ClCompile Include="handlers\userhandler.cpp">
+      <Filter>handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\user.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\error.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\object.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="handlers\loginhandler.cpp">
+      <Filter>handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="managers\usermanager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="handlers">
@@ -18,6 +36,9 @@
     </Filter>
     <Filter Include="objectmodel">
       <UniqueIdentifier>{cf2b5f50-afc1-4dee-ba4b-2dd5ba9d7136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="managers">
+      <UniqueIdentifier>{c944ef91-43a2-4cc8-b57c-7b7c669afc53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,5 +61,26 @@
       <Filter>objectmodel</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="handlers\userhandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="objectmodel\user.h">
+      <Filter>objectmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="objectmodel\error.h">
+      <Filter>objectmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="objectmodel\object.h">
+      <Filter>objectmodel</Filter>
+    </ClInclude>
+    <ClInclude Include="handlers\loginhandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="managers\usermanager.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="handlers\authhandler.h">
+      <Filter>handlers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
