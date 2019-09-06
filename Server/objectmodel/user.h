@@ -2,8 +2,12 @@
 
 #include <objectmodel/object.h>
 
-class info : public object
+class user : public object
 {
 public:
     virtual const std::wstring getAll() const override;
+
+private:
+    unsigned int m_UserId;
+    std::wstring m_Email;
 };

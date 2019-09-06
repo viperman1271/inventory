@@ -1,6 +1,8 @@
 #pragma once
 
-class api
+#include <objectmodel/object.h>
+
+class api : public object
 {
 public:
     api() 
@@ -15,7 +17,7 @@ public:
         ms_Instance = nullptr; 
     }
 
-    const std::wstring getAll();
+    virtual const std::wstring getAll() const override;
 
     void addListener(const std::wstring& in_listener) { m_listeners.push_back(in_listener); }
     void removeListener(const std::wstring& in_listener) 

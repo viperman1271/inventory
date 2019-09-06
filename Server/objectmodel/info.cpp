@@ -2,7 +2,7 @@
 
 #include <objectmodel/info.h>
 
-const std::wstring info::getAll()
+const std::wstring info::getAll() const
 {
     json_object* jobj = json_object_new_object();
     {
@@ -16,12 +16,5 @@ const std::wstring info::getAll()
         json_object_object_add(jobj, "Version", jversion);
     }
 
-    const char* jsonString = json_object_to_json_string(jobj);
-    const size_t length = strlen(jsonString);
-
-    std::unique_ptr<wchar_t> wcharArray = std::unique_ptr<wchar_t>(new wchar_t[length + 1]);
-    memset(wcharArray.get(), 0, (length + 1) * sizeof(wchar_t));
-
-    mbstowcs(wcharArray.get(), jsonString, length);
-    return std::wstring(wcharArray.get());
+    return getJsonStr(jobj);
 }
