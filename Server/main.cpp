@@ -1,60 +1,41 @@
 #include <stdafx.h>
 
-#include "handlers/basehandler.h"
 #include "handlers/apihandler.h"
+#include "handlers/basehandler.h"
 #include "handlers/infohandler.h"
+#include "handlers/loginhandler.h"
+#include "handlers/userhandler.h"
+
+#include "managers/usermanager.h"
 
 #include "objectmodel/api.h"
 
 std::vector<std::unique_ptr<auto_registering_handler>> g_handlers;
 std::unique_ptr<api> g_api;
+std::unique_ptr<user_manager> g_userManager;
+
+template<class T>
+void createHandler(const std::wstring& address, const std::wstring& path)
+{
+    web::uri_builder uri(address);
+    uri.set_path(path);
+    std::wstring addr = uri.to_uri().to_string();
+
+    g_handlers.push_back(std::unique_ptr<auto_registering_handler>(new T(addr)));
+    g_handlers.back()->open().wait();
+}
 
 void onInitialize(const std::wstring& address)
 {
     g_api = std::unique_ptr<api>(new api());
-    {
-        web::uri_builder uri(address);
-        std::wstring addr = uri.to_uri().to_string();
+    g_userManager = std::unique_ptr<user_manager>(new user_manager());
 
-        g_handlers.push_back(std::unique_ptr<auto_registering_handler>(new base_handler(addr)));
-        g_handlers.back()->open().wait();
-    }
-
-    {
-        web::uri_builder uri(address);
-        uri.set_path(U("/api/v1"));
-
-        std::wstring addr = uri.to_uri().to_string();
-        g_handlers.push_back(std::unique_ptr<auto_registering_handler>(new api_handler(addr)));
-        g_handlers.back()->open().wait();
-    }
-
-    {
-        web::uri_builder uri(address);
-        uri.set_path(U("/info"));
-
-        std::wstring addr = uri.to_uri().to_string();
-        g_handlers.push_back(std::unique_ptr<auto_registering_handler>(new info_handler(addr)));
-        g_handlers.back()->open().wait();
-    }
+    createHandler<base_handler>(address, U(""));
+    createHandler<api_handler>(address, U("/api/v1"));
+    createHandler<info_handler>(address, U("/info"));
+    createHandler<user_handler>(address, U("/user"));
+    createHandler<login_handler>(address, U("/login"));
 }
-
-// void onInitialize2(const std::wstring& address)
-// {
-//     web::uri_builder uri(address);
-// 
-//     uri.set_path(U("/api/v1"));
-// 
-//     auto addr = uri.to_uri().to_string();
-//     g_apiHttpHandler = std::unique_ptr<rest_handler>(new rest_handler(addr));
-//     g_apiHttpHandler->open().wait();
-// 
-//     std::wcout << std::wstring(U("Listening for requests at: ")) << addr << std::endl;
-// 
-//     g_api.reset();
-// 
-//     return;
-// }
 
 void onShutdown()
 {
