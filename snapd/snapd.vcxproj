@@ -94,20 +94,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)bin\$(PlatformTarget)</OutDir>
-    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj</IntDir>
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)bin\$(PlatformTarget)</OutDir>
-    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj</IntDir>
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(PlatformTarget)</OutDir>
-    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj</IntDir>
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(PlatformTarget)</OutDir>
-    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj</IntDir>
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(PlatformTarget)\$(ProjectName)\obj\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,7 +115,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -131,7 +131,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -149,7 +149,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -169,7 +169,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
