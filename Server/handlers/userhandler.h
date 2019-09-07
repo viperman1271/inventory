@@ -21,4 +21,5 @@ public:
 
 protected:
     void handleGet(web::http::http_request message) override;
+    void handlePut(web::http::http_request message) override;
 };

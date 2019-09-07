@@ -10,9 +10,12 @@
 
 #include "objectmodel/api.h"
 
+#include "database.h"
+
 std::vector<std::unique_ptr<auto_registering_handler>> g_handlers;
 std::unique_ptr<api> g_api;
 std::unique_ptr<user_manager> g_userManager;
+std::unique_ptr<database> g_database;
 
 template<class T>
 void createHandler(const std::wstring& address, const std::wstring& path)
@@ -29,6 +32,7 @@ void onInitialize(const std::wstring& address)
 {
     g_api = std::unique_ptr<api>(new api());
     g_userManager = std::unique_ptr<user_manager>(new user_manager());
+    g_database = std::unique_ptr<database>(new database());
 
     createHandler<base_handler>(address, U(""));
     createHandler<api_handler>(address, U("/api/v1"));

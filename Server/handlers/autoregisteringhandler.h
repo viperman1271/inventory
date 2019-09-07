@@ -12,12 +12,14 @@ public:
     pplx::task<void> close() { return m_listener.close(); }
 
     virtual void handleGet(web::http::http_request message) = 0;
+    virtual void handlePut(web::http::http_request message) { }
 
 protected:
     auto_registering_handler(const std::wstring& url)
         : m_listener(url)
     {
         m_listener.support(web::http::methods::GET, std::bind(&auto_registering_handler::handleGet, this, std::placeholders::_1));
+        m_listener.support(web::http::methods::PUT, std::bind(&auto_registering_handler::handlePut, this, std::placeholders::_1));
     }
 
     void init();

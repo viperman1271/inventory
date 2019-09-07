@@ -29,6 +29,10 @@
     <ClCompile Include="managers\usermanager.cpp">
       <Filter>managers</Filter>
     </ClCompile>
+    <ClCompile Include="handlers\authhandler.cpp">
+      <Filter>handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="database.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="handlers">
@@ -39,6 +43,9 @@
     </Filter>
     <Filter Include="managers">
       <UniqueIdentifier>{c944ef91-43a2-4cc8-b57c-7b7c669afc53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{dc376d7b-e143-4ad2-aebd-e4d87935f09c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +88,11 @@
     </ClInclude>
     <ClInclude Include="handlers\authhandler.h">
       <Filter>handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="database.h" />
+    <ClInclude Include="crc32.h" />
+    <ClInclude Include="utilities\fileutilities.h">
+      <Filter>utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
