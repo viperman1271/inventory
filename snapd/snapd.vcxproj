@@ -120,8 +120,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>cpprest_2_10d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib;$(SolutionDir)\lib\$(ConfigurationName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsnap.lib;cpprest_2_10d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
@@ -136,8 +136,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>cpprest_2_10d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib;$(SolutionDir)\lib\$(ConfigurationName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsnap.lib;cpprest_2_10d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
@@ -156,8 +156,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>cpprest_2_10.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\lib;$(SolutionDir)\lib\$(ConfigurationName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsnap.lib;cpprest_2_10.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
@@ -176,8 +176,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>cpprest_2_10.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\lib;$(SolutionDir)\lib\$(ConfigurationName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsnap.lib;cpprest_2_10.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
