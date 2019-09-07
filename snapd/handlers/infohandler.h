@@ -1,7 +1,7 @@
 #pragma once
 
 #include <handlers/autoregisteringhandler.h>
-#include <objectmodel/info.h>
+#include <libsnap/info.h>
 
 class info_handler : public auto_registering_handler
 {

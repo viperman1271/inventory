@@ -1,6 +1,6 @@
 #pragma once
 
-#include <objectmodel/user.h>
+#include <libsnap/user.h>
 
 class database
 {

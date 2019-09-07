@@ -3,7 +3,7 @@
 #pragma once
 
 #include <handlers/autoregisteringhandler.h>
-#include <objectmodel/user.h>
+#include <libsnap/user.h>
 
 class user_handler : public auto_registering_handler
 {

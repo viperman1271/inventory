@@ -130,6 +130,7 @@
     <ClInclude Include="include\libsnap\error.h" />
     <ClInclude Include="include\libsnap\info.h" />
     <ClInclude Include="include\libsnap\object.h" />
+    <ClInclude Include="include\libsnap\objects.h" />
     <ClInclude Include="include\libsnap\user.h" />
   </ItemGroup>
   <ItemGroup>

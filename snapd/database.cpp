@@ -3,7 +3,7 @@
 
 #include <utilities/fileutilities.h>
 
-#include <objectmodel/user.h>
+#include <libsnap/user.h>
 
 database::database()
 {

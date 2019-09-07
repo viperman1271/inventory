@@ -1,6 +1,4 @@
-#include <stdafx.h>
-
-#include <objectmodel/api.h>
+#include <libsnap/api.h>
 
 api* api::ms_Instance = nullptr;
 

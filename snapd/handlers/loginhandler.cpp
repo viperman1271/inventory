@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include <handlers/loginhandler.h>
-#include <objectmodel/user.h>
+#include <libsnap/user.h>
 
 void login_handler::handleGet(web::http::http_request message)
 {

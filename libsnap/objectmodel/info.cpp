@@ -1,6 +1,4 @@
-#include <stdafx.h>
-
-#include <objectmodel/info.h>
+#include <libsnap/info.h>
 
 const std::wstring info::getAll() const
 {

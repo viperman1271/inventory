@@ -1,6 +1,4 @@
-#include "stdafx.h"
-
-#include <objectmodel/user.h>
+#include <libsnap/user.h>
 
 const std::wstring user::getAll() const
 {

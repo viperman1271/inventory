@@ -27,6 +27,9 @@
     <ClInclude Include="include\libsnap\user.h">
       <Filter>include\libsnap</Filter>
     </ClInclude>
+    <ClInclude Include="include\libsnap\objects.h">
+      <Filter>include\libsnap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="objectmodel\api.cpp">

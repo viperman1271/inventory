@@ -10,6 +10,8 @@
 #include <string>
 #include <vector>
 
+#include <libsnap/objects.h>
+
 #define PI_MAJOR_VERSION 1
 #define PI_MINOR_VERSION 0
 #define PI_PATCH_VERSION 0

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <handlers/autoregisteringhandler.h>
-#include <objectmodel/api.h>
+#include <libsnap/api.h>
 
 class api_handler : public auto_registering_handler
 {

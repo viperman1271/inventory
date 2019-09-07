@@ -1,6 +1,6 @@
 #pragma once
 
-#include <objectmodel/object.h>
+#include <libsnap/object.h>
 
 class api : public object
 {

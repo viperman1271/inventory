@@ -1,7 +1,7 @@
 #include <stdafx.h>
 
 #include <handlers/autoregisteringhandler.h>
-#include <objectmodel/api.h>
+#include <libsnap/api.h>
 
 void auto_registering_handler::init()
 {

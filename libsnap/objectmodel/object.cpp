@@ -1,6 +1,4 @@
-#include "stdafx.h"
-
-#include <objectmodel/object.h>
+#include <libsnap/object.h>
 
 const std::wstring object::getJsonStr(json_object* jobj) const
 {
