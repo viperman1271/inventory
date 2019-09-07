@@ -8,7 +8,7 @@
 
 #include "managers/usermanager.h"
 
-#include "objectmodel/api.h"
+#include <libsnap/api.h>
 
 #include "database.h"
 
