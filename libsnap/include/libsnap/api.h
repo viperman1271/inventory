@@ -2,6 +2,10 @@
 
 #include <libsnap/object.h>
 
+#include <cassert>
+#include <string>
+#include <vector>
+
 class api : public object
 {
 public:

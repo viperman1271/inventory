@@ -1,4 +1,5 @@
 #include <libsnap/api.h>
+#include <stdlib.h>
 
 api* api::ms_Instance = nullptr;
 

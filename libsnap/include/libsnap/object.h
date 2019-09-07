@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+#include <json-c/json.h>
+
 class object
 {
 public:
