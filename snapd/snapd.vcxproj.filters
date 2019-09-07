@@ -5,23 +5,8 @@
     <ClCompile Include="handlers\autoregisteringhandler.cpp">
       <Filter>handlers</Filter>
     </ClCompile>
-    <ClCompile Include="objectmodel\api.cpp">
-      <Filter>objectmodel</Filter>
-    </ClCompile>
-    <ClCompile Include="objectmodel\info.cpp">
-      <Filter>objectmodel</Filter>
-    </ClCompile>
     <ClCompile Include="handlers\userhandler.cpp">
       <Filter>handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="objectmodel\user.cpp">
-      <Filter>objectmodel</Filter>
-    </ClCompile>
-    <ClCompile Include="objectmodel\error.cpp">
-      <Filter>objectmodel</Filter>
-    </ClCompile>
-    <ClCompile Include="objectmodel\object.cpp">
-      <Filter>objectmodel</Filter>
     </ClCompile>
     <ClCompile Include="handlers\loginhandler.cpp">
       <Filter>handlers</Filter>
@@ -37,9 +22,6 @@
   <ItemGroup>
     <Filter Include="handlers">
       <UniqueIdentifier>{71669c2b-3fb2-4908-ad8d-6fdee0df369c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="objectmodel">
-      <UniqueIdentifier>{cf2b5f50-afc1-4dee-ba4b-2dd5ba9d7136}</UniqueIdentifier>
     </Filter>
     <Filter Include="managers">
       <UniqueIdentifier>{c944ef91-43a2-4cc8-b57c-7b7c669afc53}</UniqueIdentifier>
@@ -58,27 +40,12 @@
     <ClInclude Include="handlers\autoregisteringhandler.h">
       <Filter>handlers</Filter>
     </ClInclude>
-    <ClInclude Include="objectmodel\api.h">
-      <Filter>objectmodel</Filter>
-    </ClInclude>
     <ClInclude Include="handlers\infohandler.h">
       <Filter>handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="objectmodel\info.h">
-      <Filter>objectmodel</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="handlers\userhandler.h">
       <Filter>handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="objectmodel\user.h">
-      <Filter>objectmodel</Filter>
-    </ClInclude>
-    <ClInclude Include="objectmodel\error.h">
-      <Filter>objectmodel</Filter>
-    </ClInclude>
-    <ClInclude Include="objectmodel\object.h">
-      <Filter>objectmodel</Filter>
     </ClInclude>
     <ClInclude Include="handlers\loginhandler.h">
       <Filter>handlers</Filter>
