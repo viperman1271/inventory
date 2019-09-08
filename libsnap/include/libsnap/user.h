@@ -29,11 +29,11 @@ public:
     void setPasswordHash(const std::string& password) { m_Password = password; m_PasswordHashed = true; }
     void setSalt(const std::string& salt) { m_Salt = salt; }
 
-    bool isValid() const { return !m_Username.empty() && !m_Email.empty() && !m_Password.empty(); }
+    bool isValid() const { return !m_Username.empty() && !m_Password.empty(); }
 
     inline bool operator==(const user& rhs) const
     {
-        return isValid() == rhs.isValid() && m_Username == rhs.m_Username && m_Email == rhs.m_Email;
+        return isValid() == rhs.isValid() && m_Username == rhs.m_Username;
     }
 
 private:
