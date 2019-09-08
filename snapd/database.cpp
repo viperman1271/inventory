@@ -37,27 +37,6 @@ bool database::userExists(const user& in_user) const
 
 bool database::addUser(const user& in_user)
 {
-    //////////////////////////////////////////////////////////////////////////
-
-
-    std::string encoded = "FFEEDDCCBBAA99887766554433221100";
-    std::string decoded;
-
-    CryptoPP::HexDecoder decoder;
-    decoder.Put((CryptoPP::byte*)encoded.data(), encoded.size());
-    decoder.MessageEnd();
-
-    CryptoPP::word64 size = decoder.MaxRetrievable();
-    if (size && size <= SIZE_MAX)
-    {
-        decoded.resize(size);
-        decoder.Get((CryptoPP::byte*)&decoded[0], decoded.size());
-    }
-
-    //////////////////////////////////////////////////////////////////////////
-
-
-
     auto_lock<std::recursive_mutex> lock(m_Mutex);
 
     user _user(in_user);
