@@ -10,7 +10,7 @@ public:
     user();
 
     virtual const std::wstring serialize() const override;
-    virtual void deserialize(const char* data) override;
+    virtual void deserialize(json_object* jobj) override;
 
     json_object* getJsonObject() const;
 

@@ -160,38 +160,16 @@ void database::loadUsers()
         for (unsigned int i = 0; i < arraylen; ++i)
         {
             json_object* userValue = json_object_array_get_idx(jarray, i); /*Getting the array element at position i*/
-            const json_type type = json_object_get_type(userValue);
-
             user _user;
-            json_object_object_foreach(userValue, key, val)
-            {
-                json_object* userObjValue = json_object_object_get(userValue, key);
-
-                if (strcmp(key, "UserId") == 0)
-                {
-                    _user.setUserId(json_object_get_int(userObjValue));
-                }
-                else if (strcmp(key, "Username") == 0)
-                {
-                    _user.setUsername(json_object_get_string(userObjValue));
-                }
-                else if (strcmp(key, "Password") == 0)
-                {
-                    _user.setPasswordHash(json_object_get_string(userObjValue));
-                }
-                else if (strcmp(key, "Email") == 0)
-                {
-                    _user.setEmail(json_object_get_string(userObjValue));
-                }
-                else if (strcmp(key, "Salt") == 0)
-                {
-                    _user.setSalt(json_object_get_string(userObjValue));
-                }
-            }
-
+            _user.deserialize(userValue);
             m_Users.push_back(_user);
         }
-     }
+    }
+}
+
+void database::loadSessions()
+{
+
 }
 
 std::string database::hashAndEncodePassword(const std::string& in_plainTextPassword, const CryptoPP::SecByteBlock& in_passwordSalt) const

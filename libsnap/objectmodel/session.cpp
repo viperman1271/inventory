@@ -16,9 +16,8 @@ json_object* session::getJsonObject() const
     return jobj;
 }
 
-void session::deserialize(const char* data)
+void session::deserialize(json_object* jobj)
 {
-    json_object* jobj = json_tokener_parse(data);
     json_object_object_foreach(jobj, key, val)
     {
         json_object* jobjval = json_object_object_get(jobj, key);

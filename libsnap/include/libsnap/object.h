@@ -19,5 +19,6 @@ public:
 
 protected:
     const std::wstring getJsonStr(json_object* jobj) const;
-    virtual void deserialize(const char* data) {}
+    void deserialize(const char* data) { json_object* jobj = json_tokener_parse(data); deserialize(jobj); }
+    virtual void deserialize(json_object* jobj) { }
 };
