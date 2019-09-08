@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <CLI/CLI.hpp>
+#include <libsnap/user.h>
 
 int main(int argc, char** argv)
 {
@@ -31,7 +32,28 @@ int main(int argc, char** argv)
     //Create new user
     if (username.size() > 0 && email.size() > 0 && password.size() > 0)
     {
+        user user;
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
 
+        json_object* jobj = user.getJsonObject();
+        const char* jsonString = json_object_to_json_string(jobj);
+
+        concurrency::streams::container_buffer<std::vector<uint8_t>> buf;
+
+        web::uri_builder uri(U("http://localhost"));
+        std::wstring addr = uri.to_uri().to_string();
+        web::http::client::http_client client(addr);
+
+        web::http::http_request msg(web::http::methods::PUT);
+        msg.set_body(jsonString);
+        msg.set_response_stream(buf.create_ostream());
+
+        web::uri_builder builder(U("/user/create"));
+        msg.set_request_uri(builder.to_uri());
+
+        auto resp = client.request(msg).get();
     }
 
     return 0;
