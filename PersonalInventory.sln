@@ -8,8 +8,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsnap", "libsnap\libsnap.vcxproj", "{E67CA067-17EA-400C-970F-7481BD745BA0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cli", "cli\cli.vcxproj", "{A5E70C33-606C-4662-9400-6B17BF3B85E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E67CA067-17EA-400C-970F-7481BD745BA0} = {E67CA067-17EA-400C-970F-7481BD745BA0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "snapd", "snapd\snapd.vcxproj", "{A3B30E1E-7C4C-4504-96A0-17147F217C37}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E67CA067-17EA-400C-970F-7481BD745BA0} = {E67CA067-17EA-400C-970F-7481BD745BA0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
