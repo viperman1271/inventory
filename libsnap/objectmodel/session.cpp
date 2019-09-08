@@ -1,12 +1,12 @@
-#include <libsnap/login.h>
+#include <libsnap/session.h>
 
-const std::wstring login::serialize() const
+const std::wstring session::serialize() const
 {
     json_object* jobj = getJsonObject();
     return getJsonStr(jobj);
 }
 
-json_object* login::getJsonObject() const
+json_object* session::getJsonObject() const
 {
     json_object* jobj = json_object_new_object();
     {
@@ -16,7 +16,7 @@ json_object* login::getJsonObject() const
     return jobj;
 }
 
-void login::deserialize(const char* data)
+void session::deserialize(const char* data)
 {
     json_object* jobj = json_tokener_parse(data);
     json_object_object_foreach(jobj, key, val)

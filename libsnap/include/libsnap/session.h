@@ -2,7 +2,7 @@
 
 #include <libsnap/object.h>
 
-class login : public object
+class session : public object
 {
 public:
     virtual const std::wstring serialize() const override;
