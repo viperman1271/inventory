@@ -151,6 +151,7 @@
     <ClInclude Include="include\libsnap\api.h" />
     <ClInclude Include="include\libsnap\error.h" />
     <ClInclude Include="include\libsnap\info.h" />
+    <ClInclude Include="include\libsnap\login.h" />
     <ClInclude Include="include\libsnap\object.h" />
     <ClInclude Include="include\libsnap\objects.h" />
     <ClInclude Include="include\libsnap\user.h" />
@@ -159,6 +160,7 @@
     <ClCompile Include="objectmodel\api.cpp" />
     <ClCompile Include="objectmodel\error.cpp" />
     <ClCompile Include="objectmodel\info.cpp" />
+    <ClCompile Include="objectmodel\login.cpp" />
     <ClCompile Include="objectmodel\object.cpp" />
     <ClCompile Include="objectmodel\user.cpp" />
   </ItemGroup>

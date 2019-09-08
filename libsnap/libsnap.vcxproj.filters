@@ -30,6 +30,9 @@
     <ClInclude Include="include\libsnap\objects.h">
       <Filter>include\libsnap</Filter>
     </ClInclude>
+    <ClInclude Include="include\libsnap\login.h">
+      <Filter>include\libsnap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="objectmodel\api.cpp">
@@ -45,6 +48,9 @@
       <Filter>objectmodel</Filter>
     </ClCompile>
     <ClCompile Include="objectmodel\user.cpp">
+      <Filter>objectmodel</Filter>
+    </ClCompile>
+    <ClCompile Include="objectmodel\login.cpp">
       <Filter>objectmodel</Filter>
     </ClCompile>
   </ItemGroup>
