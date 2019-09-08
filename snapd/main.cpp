@@ -30,9 +30,9 @@ void createHandler(const std::wstring& address, const std::wstring& path)
 
 void onInitialize(const std::wstring& address)
 {
-    g_api = std::unique_ptr<api>(new api());
-    g_userManager = std::unique_ptr<user_manager>(new user_manager());
-    g_database = std::unique_ptr<database>(new database());
+    g_api.reset(new api());
+    g_userManager.reset(new user_manager());
+    g_database.reset(new database());
 
     createHandler<base_handler>(address, U(""));
     createHandler<api_handler>(address, U("/api/v1"));
