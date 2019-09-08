@@ -20,9 +20,21 @@ void user_handler::handlePut(web::http::http_request message)
         user user;
         user.setAll(body);
 
-        if (user.isValid() && !g_database->userExists(user))
+        if (!user.isValid())
         {
-            g_database->addUser(user);
+
+        }
+        else if (g_database->userExists(user))
+        {
+
+        }
+        else if (!g_database->addUser(user))
+        {
+            message.reply(web::http::status_codes::InternalError);
+        }
+        else
+        {
+            message.reply(web::http::status_codes::OK);
         }
     }
 }
