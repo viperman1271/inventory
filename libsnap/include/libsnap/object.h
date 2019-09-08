@@ -6,17 +6,18 @@
 class object
 {
 public:
-    virtual const std::wstring getAll() const = 0;
-    inline void setAll(const char* data) { handleSetAll(data); }
-    inline void setAll(const std::string& data) { setAll(data.c_str()); }
-    inline void setAll(const std::wstring& data) 
+    virtual const std::wstring serialize() const = 0;
+
+    static void deserialize(object* instance, const char* data) { instance->deserialize(data); }
+    static inline void deserialize(object* instance, const std::string& data) { deserialize(instance, data.c_str()); }
+    static inline void deserialize(object* instance, const std::wstring& data)
     {
         std::unique_ptr<char> pszData(new char[data.size() + 1]);
         wcstombs(pszData.get(), data.c_str(), data.size() + 1);
-        setAll(pszData.get());
+        instance->deserialize(pszData.get());
     }
 
 protected:
     const std::wstring getJsonStr(json_object* jobj) const;
-    virtual void handleSetAll(const char* data) {}
+    virtual void deserialize(const char* data) {}
 };

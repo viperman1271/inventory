@@ -1,6 +1,6 @@
 #include <libsnap/login.h>
 
-const std::wstring login::getAll() const
+const std::wstring login::serialize() const
 {
     json_object* jobj = getJsonObject();
     return getJsonStr(jobj);
@@ -16,7 +16,7 @@ json_object* login::getJsonObject() const
     return jobj;
 }
 
-void login::handleSetAll(const char* data)
+void login::deserialize(const char* data)
 {
     json_object* jobj = json_tokener_parse(data);
     json_object_object_foreach(jobj, key, val)

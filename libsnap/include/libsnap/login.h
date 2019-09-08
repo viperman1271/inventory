@@ -5,11 +5,11 @@
 class login : public object
 {
 public:
-    virtual const std::wstring getAll() const override;
+    virtual const std::wstring serialize() const override;
     json_object* getJsonObject() const;
 
 protected:
-    virtual void handleSetAll(const char* data) override;
+    virtual void deserialize(const char* data) override;
 
 private:
     unsigned int m_UserId;

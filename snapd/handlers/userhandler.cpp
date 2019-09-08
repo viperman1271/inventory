@@ -7,7 +7,7 @@ extern std::unique_ptr<database> g_database;
 
 void user_handler::handleGet(web::http::http_request message)
 {
-    std::wstring response = user().getAll();
+    std::wstring response = user().serialize();
     message.reply(web::http::status_codes::OK, response);
 }
 
@@ -18,7 +18,7 @@ void user_handler::handlePut(web::http::http_request message)
         std::wstring body = message.extract_string().get();
         
         user user;
-        user.setAll(body);
+        object::deserialize(&user, body);
 
         if (!user.isValid())
         {

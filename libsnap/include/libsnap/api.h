@@ -21,7 +21,7 @@ public:
         ms_Instance = nullptr; 
     }
 
-    virtual const std::wstring getAll() const override;
+    virtual const std::wstring serialize() const override;
 
     void addListener(const std::wstring& in_listener) { m_listeners.push_back(in_listener); }
     void removeListener(const std::wstring& in_listener) 

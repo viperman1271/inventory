@@ -5,5 +5,5 @@
 class info : public object
 {
 public:
-    virtual const std::wstring getAll() const override;
+    virtual const std::wstring serialize() const override;
 };

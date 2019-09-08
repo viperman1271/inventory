@@ -20,7 +20,7 @@ public:
 protected:
     void handleGet(web::http::http_request message) override
     {
-        std::wstring response = api::getInstance()->getAll();
+        std::wstring response = api::getInstance()->serialize();
         message.reply(web::http::status_codes::OK, response);
     }
 };

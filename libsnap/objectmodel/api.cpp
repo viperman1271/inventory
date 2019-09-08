@@ -3,7 +3,7 @@
 
 api* api::ms_Instance = nullptr;
 
-const std::wstring api::getAll() const
+const std::wstring api::serialize() const
 {
     json_object* jobj = json_object_new_object();
     {

@@ -9,8 +9,8 @@ class user : public object
 public:
     user();
 
-    virtual const std::wstring getAll() const override;
-    virtual void handleSetAll(const char* data) override;
+    virtual const std::wstring serialize() const override;
+    virtual void deserialize(const char* data) override;
 
     json_object* getJsonObject() const;
 

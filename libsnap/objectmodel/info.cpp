@@ -5,7 +5,7 @@
 #define PI_PATCH_VERSION 0
 #define PI_BUILD_VERSION 0
 
-const std::wstring info::getAll() const
+const std::wstring info::serialize() const
 {
     json_object* jobj = json_object_new_object();
     {

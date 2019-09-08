@@ -7,13 +7,13 @@ user::user()
 
 }
 
-const std::wstring user::getAll() const
+const std::wstring user::serialize() const
 {
     json_object* jobj = getJsonObject();
     return getJsonStr(jobj);
 }
 
-void user::handleSetAll(const char* data)
+void user::deserialize(const char* data)
 {
     json_object* jobj = json_tokener_parse(data);
     json_object_object_foreach(jobj, key, val)
