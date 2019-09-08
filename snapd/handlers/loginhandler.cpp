@@ -5,6 +5,6 @@
 
 void login_handler::handleGet(web::http::http_request message)
 {
-    std::wstring response = user().getAll();
+    std::wstring response = user().serialize();
     message.reply(web::http::status_codes::OK, response);
 }
