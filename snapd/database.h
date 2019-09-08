@@ -8,14 +8,14 @@ public:
     database();
     ~database();
 
-    const bool userExists(const std::string& username) const;
-    void addUser(const std::string& username);
+    bool userExists(const user& user) const;
+    void addUser(const user& user);
 
 private:
     void writeUsers();
 
 private:
-    std::mutex m_Mutex;
+    mutable std::recursive_mutex m_Mutex;
     std::vector<user> m_Users;
 
     std::ofstream m_UsersFile;
