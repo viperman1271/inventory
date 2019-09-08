@@ -118,6 +118,7 @@
       <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib;$(SolutionDir)\lib\$(PlatformName)\$(ConfigurationName)</AdditionalLibraryDirectories>
@@ -134,6 +135,7 @@
       <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\debug\lib;$(SolutionDir)lib\$(PlatformName)\$(ConfigurationName)</AdditionalLibraryDirectories>
@@ -152,6 +154,7 @@
       <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -172,6 +175,7 @@
       <AdditionalIncludeDirectories>F:\Programming\vcpkg\packages\cpprestsdk_x64-windows\include;F:\Programming\vcpkg\packages\json-c\include;$(ProjectDir);$(SolutionDir)\libsnap\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
