@@ -39,6 +39,10 @@ void user::handleSetAll(const char* data)
         {
             m_Email = json_object_get_string(jobjval);
         }
+        else if (strcmp(key, "Salt") == 0)
+        {
+            m_Salt = json_object_get_string(jobjval);
+        }
     }
 }
 
