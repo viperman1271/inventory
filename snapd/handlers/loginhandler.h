@@ -18,4 +18,5 @@ public:
 
 protected:
     virtual void handleGet(web::http::http_request message) override;
+    virtual void handlePut(web::http::http_request message) override;
 };

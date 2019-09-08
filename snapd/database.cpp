@@ -23,11 +23,18 @@ database::database()
     }
 
     loadUsers();
+
+    if (!file::utils::fileExists("sessions.json"))
+    {
+        writeSessions();
+    }
+
+    loadSessions();
 }
 
 database::~database()
 {
-
+    writeUsers();
 }
 
 bool database::userExists(const user& in_user) const
@@ -114,6 +121,29 @@ bool database::validatePassword(const user& in_user) const
     return encodedPassword == storedUser->getPassword();
 }
 
+session database::createSession(const user& in_user)
+{
+    const user* storedUser = getStoredUser(in_user);
+    if (storedUser == nullptr)
+    {
+        return {};
+    }
+
+    for (session _session : m_Sessions)
+    {
+        if (_session.getUserId() == storedUser->getUserId())
+        {
+            return _session;
+        }
+    }
+
+    session createdSession(storedUser->getUserId());
+    m_Sessions.push_back(createdSession);
+    writeSessions();
+
+    return createdSession;
+}
+
 void database::writeUsers()
 {
     auto_lock<std::recursive_mutex> lock(m_Mutex);
@@ -135,6 +165,27 @@ void database::writeUsers()
     m_UsersFile.close();
 }
 
+void database::writeSessions()
+{
+    auto_lock<std::recursive_mutex> lock(m_Mutex);
+
+    json_object* jobj = json_object_new_object();
+    json_object* jarray = json_object_new_array();
+    {
+        for (const session& _session : m_Sessions)
+        {
+            json_object_array_add(jarray, _session.getJsonObject());
+        }
+    }
+    json_object_object_add(jobj, "Sessions", jarray);
+
+    const char* jsonString = json_object_to_json_string(jobj);
+
+    m_UsersFile = std::ofstream("sessions.json");
+    m_UsersFile.write(jsonString, strlen(jsonString));
+    m_UsersFile.close();
+}
+
 void database::loadUsers()
 {
     std::ifstream usersFile = std::ifstream("users.json");
@@ -146,7 +197,6 @@ void database::loadUsers()
     std::unique_ptr<char> fileBuffer(new char[size + 1]);
     memset(fileBuffer.get(), 0, size + 1);
     usersFile.read(reinterpret_cast<char*>(fileBuffer.get()), size);
-
 
     json_object* jobj = json_tokener_parse(fileBuffer.get());
     json_object_object_foreach(jobj, key, val)
@@ -169,7 +219,33 @@ void database::loadUsers()
 
 void database::loadSessions()
 {
+    std::ifstream sessionsFile = std::ifstream("sessions.json");
+    sessionsFile.seekg(0, std::ios::end);
+    const size_t size = sessionsFile.tellg();
 
+    sessionsFile.seekg(0, std::ios::beg);
+
+    std::unique_ptr<char> fileBuffer(new char[size + 1]);
+    memset(fileBuffer.get(), 0, size + 1);
+    sessionsFile.read(reinterpret_cast<char*>(fileBuffer.get()), size);
+
+    json_object* jobj = json_tokener_parse(fileBuffer.get());
+    json_object_object_foreach(jobj, key, val)
+    {
+        json_object* jarray = json_object_object_get(jobj, key);
+        json_type type = json_object_get_type(val);
+
+        assert(type == json_type_array);
+        const size_t arraylen = json_object_array_length(jarray);
+
+        for (unsigned int i = 0; i < arraylen; ++i)
+        {
+            json_object* userValue = json_object_array_get_idx(jarray, i); /*Getting the array element at position i*/
+            session _session;
+            _session.deserialize(userValue);
+            m_Sessions.push_back(_session);
+        }
+    }
 }
 
 std::string database::hashAndEncodePassword(const std::string& in_plainTextPassword, const CryptoPP::SecByteBlock& in_passwordSalt) const

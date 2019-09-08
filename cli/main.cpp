@@ -76,17 +76,63 @@ int main(int argc, char** argv)
             concurrency::streams::container_buffer<std::vector<uint8_t>> buf;
 
             web::uri_builder uri(U("http://localhost"));
-            std::wstring addr = uri.to_uri().to_string();
-            web::http::client::http_client client(addr);
+            const std::wstring addr = uri.to_uri().to_string();
 
             web::http::http_request msg(web::http::methods::PUT);
             msg.set_body(jsonString);
-            msg.set_response_stream(buf.create_ostream());
+            //msg.set_response_stream(buf.create_ostream());
 
             web::uri_builder builder(U("/login"));
             msg.set_request_uri(builder.to_uri());
 
-            auto resp = client.request(msg).get();
+            web::http::client::http_client client(addr);
+            web::http::http_response response = client.request(msg).get();
+
+            if (response.status_code() == web::http::status_codes::OK)
+            {
+                auto fileStream = std::make_shared<concurrency::streams::ostream>();
+                pplx::task<void> requestTask = concurrency::streams::fstream::open_ostream(U("session.json")).then([=](concurrency::streams::ostream outFile)
+                {
+                    *fileStream = outFile;
+                    return response.body().read_to_end(fileStream->streambuf());
+                })
+                .then([=](size_t)
+                {
+                    return fileStream->close();
+                });
+                
+                requestTask.wait();
+
+//                auto val = requestTask.get();
+            }
+
+            //web::http::http_response response = client.request(msg).get();
+
+            //if (response.status_code() == web::http::status_codes::OK)
+//             {
+/*
+                auto fileStream = std::make_shared<concurrency::streams::ostream>();
+                pplx::task<void> requestTask = concurrency::streams::fstream::open_ostream(U("session.json")).then([=](concurrency::streams::ostream outFile)
+                {
+                    *fileStream = outFile;
+
+                    web::http::client::http_client client(addr);
+                    return client.request(msg);
+                })
+                .then([=](web::http::http_response response)
+                {
+                    return response.body().read_to_end(fileStream->streambuf());
+                })
+                .then([=](size_t)
+                {
+                    return fileStream->close();
+                });
+
+                requestTask.wait();*/
+//             }
+
+
+            //return response.body().read_to_end(fileStream->streambuf());
         }
     }
 

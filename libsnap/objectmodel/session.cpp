@@ -1,5 +1,30 @@
 #include <libsnap/session.h>
 
+#include <cryptopp/sha.h>
+#include <cryptopp/hex.h>
+
+#include <sstream>
+
+session::session(const unsigned int in_userId) 
+    : m_UserId(in_userId)
+{
+    const uint64_t timeSinceEpoch = getSecondsSinceEpoch();
+    m_SessionStartTime = timeSinceEpoch;
+
+    CryptoPP::byte digest[CryptoPP::SHA256::DIGESTSIZE];
+    std::stringstream message;
+    message << timeSinceEpoch;
+
+    CryptoPP::SHA256 hash;
+    hash.CalculateDigest(digest, reinterpret_cast<const CryptoPP::byte*>(message.str().c_str()), message.str().length());
+
+    CryptoPP::HexEncoder encoder;
+
+    encoder.Attach(new CryptoPP::StringSink(m_SessionKey));
+    encoder.Put(digest, sizeof(digest));
+    encoder.MessageEnd();
+}
+
 const std::wstring session::serialize() const
 {
     json_object* jobj = getJsonObject();
