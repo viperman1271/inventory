@@ -33,6 +33,7 @@
     <ClInclude Include="include\libsnap\session.h">
       <Filter>include\libsnap</Filter>
     </ClInclude>
+    <ClInclude Include="serialization.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="objectmodel\api.cpp">
