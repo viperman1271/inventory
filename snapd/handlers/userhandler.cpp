@@ -5,13 +5,17 @@
 
 extern std::unique_ptr<database> g_database;
 
-void user_handler::handleGet(web::http::http_request message)
+void user_handler::onAuthorizedGet(web::http::http_request message, const user& in_user)
 {
-    std::wstring response = user().serialize();
+    user cleanedUser(in_user);
+    cleanedUser.setPassword("");
+    cleanedUser.setSalt("");
+
+    std::wstring response = cleanedUser.serialize();
     message.reply(web::http::status_codes::OK, response);
 }
 
-void user_handler::handlePut(web::http::http_request message)
+void user_handler::onUnauthorizedPut(web::http::http_request message)
 {
     if (message.request_uri().path() == U("/user/create"))
     {

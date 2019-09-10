@@ -2,14 +2,14 @@
 
 #pragma once
 
-#include <handlers/autoregisteringhandler.h>
+#include <handlers/authhandler.h>
 #include <libsnap/user.h>
 
-class user_handler : public auto_registering_handler
+class user_handler : public auth_handler
 {
 public:
     user_handler(const std::wstring& url)
-        : auto_registering_handler(url)
+        : auth_handler(url)
     {
         init();
     }
@@ -20,6 +20,6 @@ public:
     }
 
 protected:
-    void handleGet(web::http::http_request message) override;
-    void handlePut(web::http::http_request message) override;
+    void onAuthorizedGet(web::http::http_request message, const user& in_user) override;
+    void onUnauthorizedPut(web::http::http_request message) override;
 };
