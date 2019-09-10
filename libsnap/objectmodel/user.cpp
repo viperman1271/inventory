@@ -1,4 +1,5 @@
 #include <libsnap/user.h>
+#include <serialization.h>
 
 user::user()
     : m_UserId(-1)
@@ -49,12 +50,12 @@ json_object* user::getJsonObject() const
 {
     json_object* jobj = json_object_new_object();
     {
-        json_object_object_add(jobj, "UserId", json_object_new_int(m_UserId));
-        json_object_object_add(jobj, "Username", json_object_new_string(m_Username.c_str()));
-        json_object_object_add(jobj, "Password", json_object_new_string(m_Password.c_str()));
-        json_object_object_add(jobj, "IsHashed", json_object_new_boolean(m_PasswordHashed));
-        json_object_object_add(jobj, "Email", json_object_new_string(m_Email.c_str()));
-        json_object_object_add(jobj, "Salt", json_object_new_string(m_Salt.c_str()));
+        serializeValue(jobj, "UserId", m_UserId);
+        serializeValue(jobj, "Username", m_Username);
+        serializeValue(jobj, "Password", m_Password);
+        serializeValue(jobj, "IsHashed", m_PasswordHashed);
+        serializeValue(jobj, "Email", m_Email);
+        serializeValue(jobj, "Salt", m_Salt);
     }
     return jobj;
 }
