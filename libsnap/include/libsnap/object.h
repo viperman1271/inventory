@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <fstream>
 #include <json-c/json.h>
 
 class object
@@ -10,12 +11,9 @@ public:
 
     static void deserialize(object* instance, const char* data) { instance->deserialize(data); }
     static inline void deserialize(object* instance, const std::string& data) { deserialize(instance, data.c_str()); }
-    static inline void deserialize(object* instance, const std::wstring& data)
-    {
-        std::unique_ptr<char> pszData(new char[data.size() + 1]);
-        wcstombs(pszData.get(), data.c_str(), data.size() + 1);
-        instance->deserialize(pszData.get());
-    }
+    static void deserialize(object* instance, const std::wstring& data);
+
+    static bool deserializeFromFile(object* instance, const std::string& file);
 
 protected:
     const std::wstring getJsonStr(json_object* jobj) const;
