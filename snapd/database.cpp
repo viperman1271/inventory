@@ -121,6 +121,33 @@ bool database::validatePassword(const user& in_user) const
     return encodedPassword == storedUser->getPassword();
 }
 
+const user* database::validateSession(const std::wstring& in_sessionKey) const
+{
+    std::string sessionKey;
+    sessionKey.resize(in_sessionKey.size());
+    wcstombs(const_cast<char*>(sessionKey.c_str()), in_sessionKey.c_str(), in_sessionKey.size());
+
+    return validateSession(sessionKey);
+}
+
+const user* database::validateSession(const std::string& in_sessionKey) const
+{
+    for (const session& _session : m_Sessions)
+    {
+        if (_session.getSessionKey() == in_sessionKey)
+        {
+            for (const user& _user : m_Users)
+            {
+                if (_user.getUserId() == _session.getUserId())
+                {
+                    return &_user;
+                }
+            }
+        }
+    }
+    return nullptr;
+}
+
 session database::createSession(const user& in_user)
 {
     const user* storedUser = getStoredUser(in_user);

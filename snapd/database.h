@@ -14,7 +14,8 @@ public:
     bool userExists(const user& in_user) const;
     bool addUser(const user& in_user);
     bool validatePassword(const user& in_user) const;
-    bool validateSession(const session& in_session) const;
+    const user* validateSession(const std::wstring& in_session) const;
+    const user* validateSession(const std::string& in_session) const;
 
     session createSession(const user& in_user);
 
