@@ -5,6 +5,7 @@
 
 #include <CLI/CLI.hpp>
 #include <libsnap/user.h>
+#include <libsnap/session.h>
 
 int main(int argc, char** argv)
 {
@@ -23,6 +24,8 @@ int main(int argc, char** argv)
     CLI::App* loginCommand = userCommand->add_subcommand("login", "logs into the server using provided password");
     loginCommand->add_option("--name", username, "username to use for login");
     loginCommand->add_option("--password", password, "password for the user");
+
+    CLI::App* infoCommand = userCommand->add_subcommand("info", "provides information for previously authenticated user");
 
     try 
     {
@@ -94,6 +97,46 @@ int main(int argc, char** argv)
                     return fileStream->close();
                 });
                 
+                requestTask.wait();
+            }
+        }
+    }
+    else if (infoCommand->parsed())
+    {
+        session _session;
+        if (object::deserializeFromFile(&_session, "session.json"))
+        {
+            web::uri_builder uri(U("http://localhost"));
+            const std::wstring addr = uri.to_uri().to_string();
+
+            web::http::http_request msg(web::http::methods::GET);
+
+            web::uri_builder builder(U("/user"));
+            msg.set_request_uri(builder.to_uri());
+
+            const std::string& pszSessionKey = _session.getSessionKey();
+            std::wstring sessionKey;
+            sessionKey.resize(pszSessionKey.size());
+            mbstowcs(const_cast<wchar_t*>(sessionKey.c_str()), pszSessionKey.c_str(), pszSessionKey.size());
+
+            msg.headers().add(U("SessionHash"), sessionKey);
+
+            web::http::client::http_client client(addr);
+            web::http::http_response response = client.request(msg).get();
+
+            if (response.status_code() == web::http::status_codes::OK)
+            {
+                auto fileStream = std::make_shared<concurrency::streams::ostream>();
+                pplx::task<void> requestTask = concurrency::streams::fstream::open_ostream(U("user.json")).then([=](concurrency::streams::ostream outFile)
+                {
+                    *fileStream = outFile;
+                    return response.body().read_to_end(fileStream->streambuf());
+                })
+                    .then([=](size_t)
+                {
+                    return fileStream->close();
+                });
+
                 requestTask.wait();
             }
         }
